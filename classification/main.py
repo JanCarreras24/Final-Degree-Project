@@ -31,8 +31,8 @@ from util_data import SUBSET_NAMES, PROMPTS_BY_CLASS
 
 def load_data_loader(args):
     train_loader, test_loader = get_data_loader(
-        dataroot=args.dataroot,  # Path principal para DatasetMarr
-        dataset_selection=args.dataset_selection,  # Dataset a seleccionar
+        dataroot=args.dataroot,  # Path 
+        dataset_selection=args.dataset_selection,  # Dataset
         bs=args.batch_size,
         eval_bs=args.batch_size_eval,
         is_rand_aug=args.is_rand_aug,
@@ -50,7 +50,7 @@ def load_synth_train_data_loader(args):
         synth_train_data_dir=args.synth_train_data_dir,
         bs=args.batch_size,
         n_img_per_cls=args.n_img_per_cls,
-        dataset=args.dataset,
+        dataset=args.dataset_selection,
         n_shot=args.n_shot,
         real_train_fewshot_data_dir=args.real_train_fewshot_data_dir,
         is_pooled_fewshot=args.is_pooled_fewshot,
@@ -361,8 +361,8 @@ def eval(model, criterion, data_loader, epoch, fp16_scaler, args):
             for cls_idx in range(args.n_classes)
         ]
         for cls_idx, acc in enumerate(acc_per_class):
-            print("{} [{}]: {}".format(SUBSET_NAMES[args.dataset][cls_idx], cls_idx, str(acc)))
-            stat_dict[SUBSET_NAMES[args.dataset][cls_idx] + '_cls-acc'] = acc
+            print("{} [{}]: {}".format(SUBSET_NAMES[args.dataset_selection][cls_idx], cls_idx, str(acc)))
+            stat_dict[SUBSET_NAMES[args.dataset_selection][cls_idx] + '_cls-acc'] = acc
 
     return stat_dict
 

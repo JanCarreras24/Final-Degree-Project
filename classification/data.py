@@ -67,11 +67,10 @@ def get_transforms(model_type):
 
     # Test transformations
     test_transform = T.Compose([
-        T.Resize(224, interpolation=T.functional.InterpolationMode.BICUBIC),
-        T.CenterCrop(224),
+        T.Resize(384),  # same as training
         T.ToTensor(),
         T.Normalize(mean=norm_mean, std=norm_std)
-    ])
+    ]) 
 
     return train_transform, test_transform
 

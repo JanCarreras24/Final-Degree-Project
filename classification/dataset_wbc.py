@@ -118,8 +118,8 @@ class DatasetMarr(Dataset): #bo
         
         # hue = random.choice(np.linspace(0, 1))
         # saturation = random.choice(np.linspace(0, 1))
-        print(f"Valor de hue generado en colorize: {hue}")
-        print(f"Valor de saturation generado en colorize: {saturation}")
+        # print(f"Valor de hue generado en colorize: {hue}")
+        # print(f"Valor de saturation generado en colorize: {saturation}")
         hsv = rgb2hsv(image)
         hsv[:, :, 1] = saturation
         hsv[:, :, 0] = hue
@@ -151,7 +151,7 @@ class DatasetMarr(Dataset): #bo
         image = image[h1:h2,w1:w2, :]
         
         label_name = self.metadata.loc[idx,"label"]
-        print(f"Etiqueta obtenida: {label_name} (tipo: {type(label_name)})")
+        # print(f"Etiqueta obtenida: {label_name} (tipo: {type(label_name)})")
         label = self.labels_map[label_name]
         
         if self.is_hsv:

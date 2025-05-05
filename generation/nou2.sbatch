@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH -t 24:00:00
 #SBATCH -c 8
-#SBATCH --mem=128G
+#SBATCH --mem=256G
 #SBATCH --nice=10000
 
 source $HOME/.bashrc
@@ -17,12 +17,12 @@ source $HOME/.bashrc
 conda activate my_env
 
 # Variables
-GPU=0  
+GPU=0
 N_SET_SPLIT=5
 SPLIT_IDX=2
 
 BS=10
-NIPC=8
+NIPC=500
 SD="sd2.1"
 GS=2.0
 
@@ -31,13 +31,13 @@ N_TEMPLATE=1
 
 MODE="datadream"
 DD_LR=1e-4
-DD_EP=200
+DD_EP=300
 
-DATASET="matek"
+DATASET="matek" # eurosat
 IS_DATASETWISE=False
-FEWSHOT_SEED="seed4"
+FEWSHOT_SEED="seed6"
 
-# Ejecutar el script de generación
+
 CUDA_VISIBLE_DEVICES=$GPU python main_2.py \
 --bs=$BS \
 --n_img_per_class=$NIPC \
@@ -53,3 +53,5 @@ CUDA_VISIBLE_DEVICES=$GPU python main_2.py \
 --datadream_lr=$DD_LR \
 --datadream_epoch=$DD_EP \
 --is_dataset_wise_model=$IS_DATASETWISE
+
+# done

@@ -297,7 +297,7 @@ def main(
     dataset="matek", # imagenet, matek etc.
     fewshot_seed="seed0",  # best or seed{number}.
     datadream_lr: float = 1e-4,
-    datadream_epoch: int = 200,
+    datadream_epoch: int = 300,  # 200
     datadream_train_text_encoder: bool = True,
     is_tqdm: bool = True,
     is_dataset_wise_model: bool = False,
